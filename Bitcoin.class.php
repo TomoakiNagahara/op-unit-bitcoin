@@ -89,16 +89,12 @@ class Bitcoin implements IF_UNIT
 		};
 
 		//	...
-		D($_url);
-
-		//	...
 		$json = [];
 		$json['jsonrpc'] = '1.0';
 		$json['id']      = 'forasync';
 		$json['method']  = $method;
 		$json['params']  = $params;
 		$json = json_encode($json);
-		D($json);
 
 		//	...
 		$json = `curl --data-binary '$json' -H 'content-type:text/plain;' $_url`;
@@ -106,7 +102,6 @@ class Bitcoin implements IF_UNIT
 
 		//	...
 		if( $json['error'] ){
-			D($json['error']);
 			throw new \Exception( json_encode($json['error']) );
 		};
 
@@ -124,9 +119,7 @@ class Bitcoin implements IF_UNIT
 		//	...
 		try{
 			if( $result = self::RPC('getaddressesbylabel',[$label]) ){
-				D($result);
 				foreach( $result as $key => $val ){
-					D($key, $val);
 
 					//	...
 					/*
