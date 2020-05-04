@@ -81,10 +81,10 @@ class Bitcoin implements IF_UNIT
 	 */
 	static function RPC($method, $params=[])
 	{
-		//	...
+		//	Bitcoin RPC URL
 		static $_url;
 
-		//	...
+		//	Bitcoin RPC URL - Build
 		if( $_url === null ){
 			//	...
 			$config = Env::Get('bitcoin');
@@ -97,7 +97,7 @@ class Bitcoin implements IF_UNIT
 			$_url = "http://{$user}:{$pass}@{$host}:{$port}";
 		};
 
-		//	...
+		//	Bitcoin RPC JSON - Build
 		$json = [];
 		$json['jsonrpc'] = '1.0';
 		$json['id']      = 'forasync';
@@ -105,16 +105,42 @@ class Bitcoin implements IF_UNIT
 		$json['params']  = $params;
 		$json = json_encode($json);
 
-		//	...
-		$json = `curl --data-binary '$json' -H 'content-type:text/plain;' $_url`;
+		/*
+		//	Console command.
+		$command = "curl --data-binary '$json' -H 'content-type:text/plain;' $_url";
+		$json = `$curl`;
+		*/
+
+		//	Curl - Header
+		$headers = array(
+			"Content-Type: application/json",
+		);
+
+		//	Curl - Setting
+		$curl = curl_init($_url);
+		curl_setopt($curl, CURLOPT_CUSTOMREQUEST  , "POST"   );
+		curl_setopt($curl, CURLOPT_POSTFIELDS     , $json    );
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER ,  TRUE    );
+		curl_setopt($curl, CURLOPT_HTTPHEADER     , $headers );
+		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER ,  FALSE   );
+		curl_setopt($curl, CURLOPT_SSL_VERIFYHOST ,  FALSE   );
+		curl_setopt($curl, CURLOPT_COOKIEJAR      , 'cookie' );
+		curl_setopt($curl, CURLOPT_COOKIEFILE     , '/tmp'    );
+		curl_setopt($curl, CURLOPT_FOLLOWLOCATION ,  TRUE    );
+
+		//	Curl - Execute
+		$json = curl_exec($curl);
+		curl_close($curl);
+
+		//	JSON - Parse
 		$json = json_decode($json, true);
 
 		//	...
-		if( $json['error'] ){
+		if( $json['error'] ?? null ){
 			throw new \Exception( json_encode($json['error']) );
 		};
 
-		return $json['result'];
+		return $json['result'] ?? null;
 	}
 
 	/** Get bitcoin address by label.
