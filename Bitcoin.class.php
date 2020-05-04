@@ -40,6 +40,15 @@ class Bitcoin implements IF_UNIT
 	 */
 	use OP_CORE, OP_UNIT;
 
+	/** Testcase
+	 * 
+	 * @created   2020-05-05
+	 */
+	function Testcase()
+	{
+		include(__DIR__.'/testcase/index.php');
+	}
+
 	/** Get RPC port number.
 	 *
 	 * @created  2019-08-28
