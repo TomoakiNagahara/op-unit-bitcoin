@@ -89,7 +89,7 @@ class Bitcoin implements IF_UNIT
 			//	...
 			$config = Env::Get('bitcoin');
 			//	...
-			$port = self::Port($config['chain']);
+			$port = $config['port']     ?? self::Port($config['chain']);
 			$host = $config['host']     ?? null;
 			$user = $config['user']     ?? null;
 			$pass = $config['password'] ?? null;
