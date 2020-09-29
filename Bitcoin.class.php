@@ -116,6 +116,13 @@ class Bitcoin implements IF_UNIT
 			"Content-Type: application/json",
 		);
 
+		//	Check
+		if(!function_exists('curl_init') ){
+			$module = 'curl';
+			include( ConvertPath('asset:/bootstrap/php/content.phtml') );
+			throw new \Exception("php-{$module} is not installed.");
+		}
+
 		//	Curl - Setting
 		$curl = curl_init($_url);
 		curl_setopt($curl, CURLOPT_CUSTOMREQUEST  , "POST"   );
