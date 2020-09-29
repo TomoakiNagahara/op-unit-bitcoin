@@ -1,10 +1,9 @@
 <?php
-/**
- * unit-bitcoin:/Bitcoin.class.php
+/** op-unit-bitcoin:/Bitcoin.class.php
  *
  * @creation  2019-08-27
  * @version   1.0
- * @package   unit-bitcoin
+ * @package   op-unit-bitcoin
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
@@ -40,7 +39,7 @@ class Bitcoin implements IF_UNIT
 	use OP_CORE, OP_UNIT;
 
 	/** Testcase
-	 * 
+	 *
 	 * @created   2020-05-05
 	 */
 	function Testcase()
