@@ -27,6 +27,9 @@ $config = Config::Get('bitcoin');
 $bitcoin = Unit('Bitcoin');
 
 //	...
+$temp = [];
+
+//	...
 $temp['balance'] = $bitcoin->Balance();
 
 //  ...
