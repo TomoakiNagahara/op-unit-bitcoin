@@ -60,5 +60,8 @@ $configer->Privilege([
 	'column'   => '*',
 ]);
 
+//	include
+include(__DIR__.'/op_btc_transaction.php');
+
 //  Return selftest configuration.
 return $configer->Get();
