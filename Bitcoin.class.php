@@ -40,6 +40,21 @@ class Bitcoin implements IF_UNIT
 	 */
 	use OP_CORE, OP_UNIT;
 
+	/** Database
+	 *
+	 */
+	function Database()
+	{
+		/* @var $_database BITCOIN */
+		static $_database;
+
+		//	...
+		require(__DIR__.'/Database.class.php');
+
+		//	...
+		return $_database;
+	}
+
 	/** Get RPC port number.
 	 *
 	 * @created  2019-08-28
