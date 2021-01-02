@@ -1,5 +1,5 @@
 <?php
-/** op-unit-bitcoin:/Bitcoin.class.php
+/** op-unit-bitcoin:/testcase/index.php
  *
  * @created   2020-05-05
  * @package   op-unit-bitcoin
@@ -11,7 +11,7 @@
 /** namespace
  *
  */
-namespace OP\UNIT;
+namespace OP\UNIT\BITCOIN;
 
 /** use
  *
@@ -22,7 +22,7 @@ use function OP\Unit;
 //  ...
 $config = Config::Get('bitcoin');
 
-/* @var $bitcoin Bitcoin */
+/* @var $bitcoin \OP\UNIT\Bitcoin */
 $bitcoin = Unit('Bitcoin');
 
 //	...
