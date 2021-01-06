@@ -212,7 +212,7 @@ class Bitcoin implements IF_UNIT
 	 */
 	static function Mining(string $address, $number=1)
 	{
-		return self::RPC('generatetoaddress',[1, $address]);
+		return self::RPC('generatetoaddress',[(int)$number, $address]);
 	}
 
 	/** Get Blockchain information.
