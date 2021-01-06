@@ -19,7 +19,11 @@ namespace OP\UNIT\BITCOIN;
 use function OP\Unit;
 use function OP\Load;
 use function OP\Template;
+use function \OP\TESTCASE\Auto;
+use function \OP\TESTCASE\Menu;
 
 //	...
-Load('Template');
-Template('index.php');
+Menu();
+
+/* @var $args array */
+Auto($args);
