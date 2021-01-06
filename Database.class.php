@@ -11,7 +11,7 @@
 /** namespace
  *
  */
-namespace OP\UNIT;
+namespace OP\UNIT\BITCOIN;
 
 /** Used class.
  *
