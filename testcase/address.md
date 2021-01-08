@@ -1,4 +1,6 @@
+URL Query
+===
 
-# URL Query
-
- * label : Generate bitcoin address by label
+| key     | meaning |
+| ------- | ------- |
+| label   | Generate bitcoin address by label |
