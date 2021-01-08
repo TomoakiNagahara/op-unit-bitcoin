@@ -16,8 +16,14 @@ namespace OP\UNIT\BITCOIN;
 /** use
  *
  */
+use OP\Env;
 use function OP\Unit;
 use function OP\Request;
+
+//	...
+if(!Env::isAdmin() ){
+	throw new \Exception('You are not an administrator.');
+}
 
 /* @var $bitcoin \OP\UNIT\Bitcoin */
 $bitcoin = Unit('Bitcoin');
@@ -30,7 +36,7 @@ $address = $request['address'] ?? null;
 $amount  = $request['amount']  ?? null;
 
 //	...
-if( empty($address) and empty($amount) ){
+if( empty($address) or empty($amount) ){
 	D("Empty address or amount", $request);
 	return;
 }
