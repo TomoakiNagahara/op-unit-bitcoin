@@ -118,10 +118,10 @@ class Bitcoin implements IF_UNIT
 		return self::RPC('getbalance');
 	}
 
-	/** Wallet balance without address. If there is address, amout of each address.
+	/** Amount(string|null $address) --> Balance(null), Recieve(string $address)
 	 *
 	 * @created  2019-08-28
-	 * @param    string      $address
+	 * @param    string|null $address
 	 * @return   integer     $result
 	 */
 	static function Amount($address=null)
