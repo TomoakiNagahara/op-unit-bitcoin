@@ -21,7 +21,13 @@ use function OP\Request;
 
 //	...
 $address = Request('address');
-$block   = Request('block', 1);
+$block   = Request('block');
+
+//	...
+if( empty($address) or empty($block) ){
+	D('Empty address or block.', Request());
+	return;
+}
 
 /* @var $bitcoin \OP\UNIT\Bitcoin */
 $bitcoin = Unit('Bitcoin');
