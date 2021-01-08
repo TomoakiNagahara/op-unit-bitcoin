@@ -17,12 +17,16 @@ namespace OP\UNIT\BITCOIN;
  *
  */
 use function OP\Unit;
+use function OP\Request;
+
+//	...
+$address = Request('address','');
 
 /* @var $bitcoin \OP\UNIT\Bitcoin */
 $bitcoin = Unit('Bitcoin');
 
 /* @var $bitcoin \OP\UNIT\Bitcoin */
-$balance = $bitcoin->Balance();
+$balance = $bitcoin->Balance($address);
 
 //	...
-D('balance', $balance);
+D(['balance'=>$balance, 'address'=>$address]);
