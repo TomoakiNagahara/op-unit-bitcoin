@@ -127,7 +127,7 @@ class Bitcoin implements IF_UNIT
 	{
 		//	Per address.
 		if( $address ){
-			return self::Recieved($address);
+			return self::Received($address);
 		}
 
 		//	Wallet total amount
@@ -143,7 +143,7 @@ class Bitcoin implements IF_UNIT
 	static function Amount($address=null)
 	{
 		if( $address ){
-			return self::Recieved($address);
+			return self::Received($address);
 		}else{
 			return self::Balance();
 		};
@@ -176,7 +176,7 @@ class Bitcoin implements IF_UNIT
 	 * @param    string      $address
 	 * @return   integer     $result
 	 */
-	static function Recieved($address)
+	static function Received(string $address)
 	{
 		return self::RPC('getreceivedbyaddress',[$address]);
 	}
