@@ -1,0 +1,19 @@
+
+/** op-unit-bitcoin:/testcase/action.css
+ *
+ * @created   2021-01-09
+ * @package   op-unit-bitcoin
+ * @version   1.0
+ * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+ * @copyright Tomoaki Nagahara All right reserved.
+ */
+
+#testcase form {
+	margin:  0.5em 0;
+	padding: 1em;
+	border:  1px solid var(--root-color-border);
+}
+
+#testcase input[type="text"]{
+	width: 23em;
+}
