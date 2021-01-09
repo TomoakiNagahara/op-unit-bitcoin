@@ -18,6 +18,10 @@ namespace OP\UNIT\BITCOIN;
  */
 use function OP\Unit;
 use function OP\Request;
+use function OP\Template;
+
+//	...
+Template('address.phtml');
 
 //	...
 $label = Request('label');
