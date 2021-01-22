@@ -1,4 +1,4 @@
-URL Query
+Send bitcoin
 ===
 
 | key     | meaning |
