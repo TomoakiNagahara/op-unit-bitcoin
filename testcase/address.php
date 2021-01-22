@@ -17,20 +17,30 @@ namespace OP\UNIT\BITCOIN;
  *
  */
 use function OP\Unit;
-use function OP\Request;
-use function OP\Template;
 
 //	...
-Template('address.phtml');
+$base_name = explode('.', basename(__FILE__))[0];
+
+/* @var $form \OP\UNIT\Form */
+$form = \OP\Unit('Form');
+$form->Config("{$base_name}.form.php");
 
 //	...
-$label = Request('label');
+echo $form;
+
+//	...
+if(!$form->isValidate() ){
+	return;
+}
+
+//	...
+$label = $form->GetValue('label');
 
 /* @var $bitcoin \OP\UNIT\Bitcoin */
 $bitcoin = Unit('Bitcoin');
 
-/* @var $bitcoin \OP\UNIT\Bitcoin */
-$balance = $bitcoin->Address($label);
+//	...
+$address = $bitcoin->Address($label);
 
 //	...
-D(['label'=>$label, 'balance'=>$balance]);
+D(['label'=>$label, 'address'=>$address]);
