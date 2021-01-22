@@ -17,10 +17,24 @@ namespace OP\UNIT\BITCOIN;
  *
  */
 use function OP\Unit;
-use function OP\Request;
 
 //	...
-$address = Request('address','');
+$base_name = explode('.', basename(__FILE__))[0];
+
+/* @var $form \OP\UNIT\Form */
+$form = \OP\Unit('Form');
+$form->Config("{$base_name}.form.php");
+
+//	...
+echo $form;
+
+//	...
+if(!$form->isValidate() ){
+	return;
+}
+
+//	...
+$address = $form->GetValue('address');
 
 /* @var $bitcoin \OP\UNIT\Bitcoin */
 $bitcoin = Unit('Bitcoin');
