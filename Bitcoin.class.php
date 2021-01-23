@@ -44,13 +44,19 @@ class Bitcoin implements IF_UNIT
 	/** Database
 	 *
 	 */
-	function Database()
+	static function Database()
 	{
 		/* @var $_database BITCOIN\Database */
 		static $_database;
 
 		//	...
-		require(__DIR__.'/Database.class.php');
+		if( $_database === null ){
+			//	...
+			require(__DIR__.'/Database.class.php');
+
+			//	...
+			$_database = new \OP\UNIT\BITCOIN\Database();
+		}
 
 		//	...
 		return $_database;
