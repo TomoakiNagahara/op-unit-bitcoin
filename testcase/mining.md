@@ -1,4 +1,4 @@
-URL Query
+Mining block
 ===
 
 | key     | value |
