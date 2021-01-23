@@ -1,0 +1,41 @@
+<?php
+
+/** namespace
+ *
+ */
+namespace OP\UNIT\BITCOIN;
+
+/** use
+ *
+ */
+use function OP\Request;
+
+//	...
+$address = Request('address');
+$block   = Request('block');
+
+?>
+<form>
+	<div class="table">
+		<div class="tr">
+			<div class="th">
+				Address
+			</div>
+			<div class="td">
+				<input type="text" name="address" value="<?= $address ?>" placeholder="Bitcoin address to receive rewards" />
+			</div>
+		</div><div class="tr">
+			<div class="th">
+				Block
+			</div>
+			<div class="td">
+				<input type="text" name="block" value="<?= $block ?>" placeholder="Number of blocks to generate" />
+			</div>
+		</div><div class="tr">
+			<div class="td"></div>
+			<div class="td">
+				<button> Submit </button>
+			</div>
+		</div>
+	</div>
+</form>
