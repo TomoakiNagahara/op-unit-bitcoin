@@ -18,6 +18,7 @@ namespace OP\UNIT\BITCOIN;
  */
 use OP\Env;
 use OP\OP_CORE;
+use function OP\Unit;
 
 /** Bitcoin
  *
@@ -73,6 +74,7 @@ class Database
 		$config['set']['address']        = $address;
 		$config['set']['amount']         = $amount;
 		$config['set']['transaction_id'] = $transaction_id;
+		$config['set']['created']        = Env::Timestamp(true);
 
 		//	...
 		self::_Database()->Insert($config);
