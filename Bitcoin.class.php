@@ -21,6 +21,8 @@ namespace OP\UNIT;
 /** Used class.
  *
  */
+use OP\Env;
+use OP\OP_CI;
 use OP\OP_CORE;
 use OP\OP_UNIT;
 use OP\IF_UNIT;
@@ -39,7 +41,7 @@ class Bitcoin implements IF_UNIT
 	/** trait.
 	 *
 	 */
-	use OP_CORE, OP_UNIT;
+	use OP_CORE, OP_UNIT, OP_CI;
 
 	/** Database
 	 *
