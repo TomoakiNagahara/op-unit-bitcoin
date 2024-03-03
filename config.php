@@ -8,10 +8,19 @@
  * @copyright Tomoaki Nagahara All right reserved.
  */
 
+/** Declare strict
+ *
+ */
+declare(strict_types=1);
+
 /** namespace
  *
  */
-namespace OP;
+namespace OP\UNIT\BITCOIN;
+
+/** Used class.
+ *
+ */
 
 //	...
 switch( $_SERVER['SERVER_NAME'] ){
@@ -68,12 +77,23 @@ switch( $network ){
 }
 
 //	...
-$config = [
+$CLI = [
+];
+
+//	...
+$RPC = [
 	'chain'     => $chain,
 	'host'      => $host,
 	'user'      => $user,
 	'password'  => $password,
 //	'port'      => $port ?? null,
+];
+
+//	...
+$config = [
+	'bitcoin.conf' => '~/.bitcoin/bitcoin.conf',
+	'CLI' => $CLI,
+	'RPC' => $RPC,
 ];
 
 //	...
