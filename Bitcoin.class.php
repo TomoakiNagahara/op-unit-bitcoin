@@ -41,7 +41,7 @@ class Bitcoin implements IF_UNIT
 	use OP_CORE, OP_UNIT;
 
 	/** Testcase
-	 * 
+	 *
 	 * @created   2020-05-05
 	 */
 	function Testcase()
