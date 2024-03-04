@@ -231,4 +231,14 @@ class Bitcoin implements IF_UNIT
 	{
 		return self::RPC('getblockchaininfo');
 	}
+
+	/** Get mining information.
+	 *
+	 * @created  2019-08-28
+	 * @return   array
+	 */
+	static function InfoMining()
+	{
+		return self::RPC('getmininginfo');
+	}
 }
