@@ -60,4 +60,53 @@ class Bitcoin implements IF_UNIT
 		//	...
 		return $port;
 	}
+
+	/** Submit to RPC.
+	 *
+	 * @created  2019-08-28
+	 * @param    string      $method
+	 * @return   string      $json
+	 */
+	static function RPC($method, $params=[])
+	{
+		//	...
+		static $_url;
+
+		//	...
+		if( $_url === null ){
+			//	...
+			$config = Env::Get('bitcoin');
+			//	...
+			$port = self::Port($config['chain']);
+			$host = $config['host']     ?? null;
+			$user = $config['user']     ?? null;
+			$pass = $config['password'] ?? null;
+			//	...
+			$_url = "http://{$user}:{$pass}@{$host}:{$port}";
+		};
+
+		//	...
+		D($_url);
+
+		//	...
+		$json = [];
+		$json['jsonrpc'] = '1.0';
+		$json['id']      = 'forasync';
+		$json['method']  = $method;
+		$json['params']  = $params;
+		$json = json_encode($json);
+		D($json);
+
+		//	...
+		$json = `curl --data-binary '$json' -H 'content-type:text/plain;' $_url`;
+		$json = json_decode($json, true);
+
+		//	...
+		if( $json['error'] ){
+			D($json['error']);
+			throw new \Exception( json_encode($json['error']) );
+		};
+
+		return $json['result'];
+	}
 }
