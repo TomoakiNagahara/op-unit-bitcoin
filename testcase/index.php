@@ -38,3 +38,4 @@ $temp['balance'] = $bitcoin->Balance();
 
 //  ...
 D($config, $temp);
+D($bitcoin->RPC('getblockchaininfo'));
