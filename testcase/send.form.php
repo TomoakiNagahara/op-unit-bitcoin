@@ -18,7 +18,10 @@ $form = [];
 $form['name'] = substr(md5(__FILE__), 0, 8);
 
 //	...
+$base58 = (Config::Get('bitcoin')['chain'] === 'mainnet') ? ',base58':'';
+/*
 $base58 = (Config::Get('bitcoin')['chain'] !== 'regtest') ? ',base58':'';
+*/
 
 //	...
 $name  = 'address';
