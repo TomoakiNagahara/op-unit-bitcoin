@@ -1,23 +1,20 @@
 <?php
-/**
- * unit-bitcoin:/Bitcoin.class.php
+/** op-unit-bitcoin:/Bitcoin.class.php
  *
- * @creation  2019-08-27
+ * @created   2019-08-27
  * @version   1.0
- * @package   unit-bitcoin
+ * @package   op-unit-bitcoin
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
 
 /** namespace
  *
- * @creation  2019-08-27
  */
 namespace OP\UNIT;
 
 /** Used class.
  *
- * @creation  2019-08-27
  */
 use OP\Env;
 use OP\OP_CORE;
@@ -26,9 +23,9 @@ use OP\IF_UNIT;
 
 /** Bitcoin
  *
- * @creation  2019-08-27
+ * @created   2019-08-27
  * @version   1.0
- * @package   unit-bitcoin
+ * @package   op-unit-bitcoin
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
