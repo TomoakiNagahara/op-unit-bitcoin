@@ -1,6 +1,5 @@
 <?php
-/**
- * op-unit-bitcoin:/Bitcoin.class.php
+/** op-unit-bitcoin:/Bitcoin.class.php
  *
  * @created   2020-05-05
  * @package   op-unit-bitcoin
