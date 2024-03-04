@@ -188,4 +188,15 @@ class Bitcoin implements IF_UNIT
 	{
 		return self::RPC('getreceivedbyaddress',[$address]);
 	}
+
+	/** Received bitcoin.
+	 *
+	 * @created  2019-08-28
+	 * @param    string      $transaction_id
+	 * @return   integer     $result
+	 */
+	static function Transaction($transaction_id)
+	{
+		return self::RPC('gettransaction',[$transaction_id]);
+	}
 }
