@@ -251,4 +251,14 @@ class Bitcoin implements IF_UNIT
 	{
 		return self::RPC('getwalletinfo');
 	}
+
+	/** Get address information.
+	 *
+	 * @created  2019-08-28
+	 * @return   array
+	 */
+	static function InfoAddress($address)
+	{
+		return self::RPC('getaddressinfo', [$address]);
+	}
 }
