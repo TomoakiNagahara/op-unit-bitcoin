@@ -210,4 +210,15 @@ class Bitcoin implements IF_UNIT
 	{
 		return self::RPC('getblock',[$block_id]);
 	}
+
+	/** Generate block.
+	 *
+	 * @created  2019-08-28
+	 * @param    integer     $number of blocks
+	 * @return   string      $address of mining reward
+	 */
+	static function Mining($number, $address)
+	{
+		return self::RPC('generatetoaddress',[1, $address]);
+	}
 }
