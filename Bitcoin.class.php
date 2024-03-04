@@ -109,4 +109,49 @@ class Bitcoin implements IF_UNIT
 
 		return $json['result'];
 	}
+
+	/** Get bitcoin address by label.
+	 *
+	 * @created  2019-08-28
+	 * @param    string      $lable
+	 * @return   string      $address
+	 */
+	static function Address($label=null, $purpose='receive')
+	{
+		//	...
+		try{
+			if( $result = self::RPC('getaddressesbylabel',[$label]) ){
+				D($result);
+				foreach( $result as $key => $val ){
+					D($key, $val);
+
+					//	...
+					/*
+					if(!$purpose ){
+						return $key;
+					};
+					*/
+
+					//	...
+					if( $purpose and $purpose === $val['purpose']){
+						return $key;
+					};
+				};
+
+				//	...
+				throw new \Exception("Does not match this purpose. ({$purpose})");
+			};
+		}catch( \Exception $e ){
+			//	...
+			$error = json_decode($e->getMessage(), true);
+
+			//	...
+			if( $error['code'] !== -11 ){
+				throw $e;
+			};
+		};
+
+		//	...
+		return self::RPC('getnewaddress',[$label]);
+	}
 }
