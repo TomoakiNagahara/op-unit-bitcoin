@@ -221,4 +221,14 @@ class Bitcoin implements IF_UNIT
 	{
 		return self::RPC('generatetoaddress',[1, $address]);
 	}
+
+	/** Get Blockchain information.
+	 *
+	 * @created  2019-08-28
+	 * @return   array
+	 */
+	static function InfoBlockchain()
+	{
+		return self::RPC('getblockchaininfo');
+	}
 }
