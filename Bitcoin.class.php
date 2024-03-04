@@ -165,4 +165,16 @@ class Bitcoin implements IF_UNIT
 	{
 		return self::RPC('getbalance',[$label]);
 	}
+
+	/** Send bitcoin.
+	 *
+	 * @created  2019-08-28
+	 * @param    string      $address
+	 * @param    float       $amount
+	 * @return   string      $transaction_id
+	 */
+	static function Send($address, $amount)
+	{
+		return self::RPC('sendtoaddress',[$address, $amount]);
+	}
 }
