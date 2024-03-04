@@ -44,3 +44,6 @@ $balance = $bitcoin->Balance($address);
 
 //	...
 D(['balance'=>$balance, 'address'=>$address]);
+
+//	...
+D($bitcoin->RPC('listaddressgroupings'));
