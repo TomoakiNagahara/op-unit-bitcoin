@@ -154,4 +154,15 @@ class Bitcoin implements IF_UNIT
 		//	...
 		return self::RPC('getnewaddress',[$label]);
 	}
+
+	/** Get balance
+	 *
+	 * @created  2019-08-28
+	 * @param    string      $address
+	 * @return   string      $address
+	 */
+	static function Balance($label=null)
+	{
+		return self::RPC('getbalance',[$label]);
+	}
 }
