@@ -199,4 +199,15 @@ class Bitcoin implements IF_UNIT
 	{
 		return self::RPC('gettransaction',[$transaction_id]);
 	}
+
+	/** Get block information.
+	 *
+	 * @created  2019-08-28
+	 * @param    string      $block_id
+	 * @return   array       $result
+	 */
+	static function Block($block_id)
+	{
+		return self::RPC('getblock',[$block_id]);
+	}
 }
