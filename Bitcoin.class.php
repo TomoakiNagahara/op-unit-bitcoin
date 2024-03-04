@@ -46,7 +46,7 @@ class Bitcoin implements IF_UNIT
 	 */
 	function Database()
 	{
-		/* @var $_database BITCOIN */
+		/* @var $_database BITCOIN\Database */
 		static $_database;
 
 		//	...
