@@ -170,7 +170,7 @@ class Bitcoin implements IF_UNIT
 		$transaction_id = self::RPC('sendtoaddress',[$address, $amount]);
 
 		//	...
-		if( Env::Get('bitcoin')['database'] ?? null ){
+		if( OP()->Config('bitcoin')['database'] ?? null ){
 			self::Database()->Send($address, $amount, $transaction_id);
 		}
 
