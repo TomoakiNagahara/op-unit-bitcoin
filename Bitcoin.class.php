@@ -79,47 +79,26 @@ class Bitcoin implements IF_UNIT
 
 	/** Get bitcoin address by label.
 	 *
+	 * <pre>
+	 * //	Get bitcoin address.
+	 * $this->Address();
+	 *
+	 * //	Get bitcoin address by label.
+	 * $this->Address('TEST');
+	 *
+	 * //	Get new address generate always.
+	 * $this->Address('TEST', null);
+	 * </pre>
+	 *
 	 * @created  2019-08-28
 	 * @param    string      $lable
+	 * @param    string      $purpose
 	 * @return   string      $address
 	 */
 	static function Address($label=null, $purpose='receive')
 	{
-		//	...
-		try{
-			if( $result = self::RPC('getaddressesbylabel',[$label]) ){
-				D($result);
-				foreach( $result as $key => $val ){
-					D($key, $val);
-
-					//	...
-					/*
-					if(!$purpose ){
-						return $key;
-					};
-					*/
-
-					//	...
-					if( $purpose and $purpose === $val['purpose']){
-						return $key;
-					};
-				};
-
-				//	...
-				throw new \Exception("Does not match this purpose. ({$purpose})");
-			};
-		}catch( \Exception $e ){
-			//	...
-			$error = json_decode($e->getMessage(), true);
-
-			//	...
-			if( $error['code'] !== -11 ){
-				throw $e;
-			};
-		};
-
-		//	...
-		return self::RPC('getnewaddress',[$label]);
+		require_once(__DIR__.'/function/RPC/Address.php');
+		return BITCOIN\RPC\Address($label, $purpose);
 	}
 
 	/** Get balance
