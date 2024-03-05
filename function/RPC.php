@@ -20,8 +20,13 @@ namespace OP\UNIT\BITCOIN;
 
 /** RPC
  *
+ * @moved      2024-03-05  from Bitcoin::RPC()
+ * @version    1.0
+ * @package    op-unit-bitcoin
+ * @author     Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+ * @copyright  Tomoaki Nagahara All right reserved.
  */
-function RPC($method, $params=[])
+function RPC(string $method, array $params=[])
 {
 	//	Bitcoin RPC URL
 	static $_url;
