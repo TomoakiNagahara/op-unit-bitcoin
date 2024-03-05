@@ -21,7 +21,6 @@ namespace OP\UNIT;
 /** Used class.
  *
  */
-use OP\Env;
 use OP\OP_CORE;
 use OP\OP_UNIT;
 use OP\IF_UNIT;
@@ -74,45 +73,8 @@ class Bitcoin implements IF_UNIT
 	 */
 	static function RPC($method, $params=[])
 	{
-		//	...
-		static $_url;
-
-		//	...
-		if( $_url === null ){
-			//	...
-			$config = Env::Get('bitcoin');
-			//	...
-			$port = self::Port($config['chain']);
-			$host = $config['host']     ?? null;
-			$user = $config['user']     ?? null;
-			$pass = $config['password'] ?? null;
-			//	...
-			$_url = "http://{$user}:{$pass}@{$host}:{$port}";
-		};
-
-		//	...
-		D($_url);
-
-		//	...
-		$json = [];
-		$json['jsonrpc'] = '1.0';
-		$json['id']      = 'forasync';
-		$json['method']  = $method;
-		$json['params']  = $params;
-		$json = json_encode($json);
-		D($json);
-
-		//	...
-		$json = `curl --data-binary '$json' -H 'content-type:text/plain;' $_url`;
-		$json = json_decode($json, true);
-
-		//	...
-		if( $json['error'] ){
-			D($json['error']);
-			throw new \Exception( json_encode($json['error']) );
-		};
-
-		return $json['result'];
+		require_once(__DIR__.'/function/RPC.php');
+		return BITCOIN\RPC($method, $params);
 	}
 
 	/** Get bitcoin address by label.
