@@ -18,6 +18,11 @@ declare(strict_types=1);
  */
 namespace OP\UNIT\BITCOIN\RPC;
 
+/** include
+ *
+ */
+include_once(__DIR__.'/../RPC.php');
+
 /** Get new address / already address.
  *
  * @moved  2024-03-05
@@ -38,7 +43,7 @@ function Address(string $label=null, string $purpose='receive')
 		*/
 
 		//	Get already generated address.
-		if( $result = self::RPC('getaddressesbylabel',[$label]) ){
+		if( $result = \OP\UNIT\BITCOIN\RPC('getaddressesbylabel',[$label]) ){
 
 			//	Get first address.
 			foreach( $result as $key => $val ){
@@ -72,5 +77,5 @@ function Address(string $label=null, string $purpose='receive')
 	};
 
 	//	...
-	return self::RPC('getnewaddress',[$label]);
+	return \OP\UNIT\BITCOIN\RPC('getnewaddress',[$label]);
 }
