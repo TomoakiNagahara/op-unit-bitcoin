@@ -36,7 +36,7 @@ function RPC(string $method, array $params=[])
 		//	...
 		$config = OP()->Config('bitcoin');
 		//	...
-		$port = $config['port']     ?? self::Port($config['chain']);
+		$port = $config['port']     ?? \OP\UNIT\BITCOIN::Port($config['chain']);
 		$host = $config['host']     ?? null;
 		$user = $config['user']     ?? null;
 		$pass = $config['password'] ?? null;
