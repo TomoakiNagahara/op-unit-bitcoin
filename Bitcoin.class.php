@@ -266,4 +266,23 @@ class Bitcoin implements IF_UNIT
 	{
 		return self::RPC('getaddressinfo', [$address]);
 	}
+
+	/** Return the config that also include the bitcoin.conf.
+	 *
+	 * @created   2024-03-02
+	 * @return    array
+	 */
+	static function Config() : array
+	{
+		//	...
+		static $config;
+
+		//	...
+		if(!$config ){
+			$config = require_once(__DIR__.'/include/config.php');
+		}
+
+		//	...
+		return $config;
+	}
 }
