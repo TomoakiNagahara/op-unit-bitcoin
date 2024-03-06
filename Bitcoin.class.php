@@ -62,4 +62,24 @@ class Bitcoin implements IF_UNIT
 		//	...
 		return $_database;
 	}
+
+	/** CLI - Access to local process.
+	 *
+	 * @created   2024-03-02
+	 * @return    Bitcoin\CLI
+	 */
+	static function CLI() : Bitcoin\CLI
+	{
+		//	...
+		static $_CLI;
+
+		//	...
+		if(!$_CLI ){
+			require_once(__DIR__.'/Bitcoin-CLI.class.php');
+			$_CLI = new Bitcoin\CLI;
+		}
+
+		//	...
+		return $_CLI;
+	}
 }
