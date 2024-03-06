@@ -19,7 +19,7 @@ namespace OP\UNIT\BITCOIN;
 use OP\Config;
 
 //  ...
-$config = Config::Get('bitcoin');
+$config = OP()->Unit('Bitcoin')->Config();
 
 //  ...
 D($config);
