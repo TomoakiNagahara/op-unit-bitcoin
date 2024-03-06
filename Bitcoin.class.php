@@ -82,4 +82,24 @@ class Bitcoin implements IF_UNIT
 		//	...
 		return $_CLI;
 	}
+
+	/** RPC - Access by TCP/IP
+	 *
+	 * @created   2024-03-02
+	 * @return    Bitcoin\RPC
+	 */
+	static function RPC() : Bitcoin\RPC
+	{
+		//	...
+		static $_RPC;
+
+		//	...
+		if(!$_RPC ){
+			require_once(__DIR__.'/Bitcoin-RPC.class.php');
+			$_RPC = new Bitcoin\RPC;
+		}
+
+		//	...
+		return $_RPC;
+	}
 }
