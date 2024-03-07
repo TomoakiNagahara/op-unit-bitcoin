@@ -26,9 +26,14 @@ use function OP\Unit;
 
 //  ...
 $config = Config::Get('bitcoin');
+D($config);
 
 /* @var $bitcoin \OP\UNIT\Bitcoin */
 $bitcoin = Unit('Bitcoin');
+
+//	...
+$config = $bitcoin->Config();
+D($config);
 
 //	...
 $temp = [];
