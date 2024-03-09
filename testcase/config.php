@@ -8,6 +8,11 @@
  * @copyright Tomoaki Nagahara All right reserved.
  */
 
+/** Declare strict
+ *
+ */
+declare(strict_types=1);
+
 /** namespace
  *
  */
@@ -17,8 +22,10 @@ namespace OP\UNIT\BITCOIN;
  *
  */
 
-//	...
-$config = OP()->Unit('Bitcoin')->Config();
+//	2020
+$config = OP()->Config('bitcoin');
+D(2020, $config);
 
-//	...
-D($config);
+//	2024
+$config = OP()->Unit('Bitcoin')->Config();
+D(2024, $config);
