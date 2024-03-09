@@ -204,7 +204,7 @@ class Bitcoin implements IF_UNIT
 	 * @param    string      $block_id
 	 * @return   array       $result
 	 */
-	static function Block($block_id)
+	static function InfoBlock($block_id)
 	{
 		return self::RPC('getblock',[$block_id]);
 	}
