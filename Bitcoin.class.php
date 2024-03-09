@@ -102,13 +102,13 @@ class Bitcoin implements IF_UNIT
 	/** Get bitcoin address by label.
 	 *
 	 * <pre>
-	 * //	Get bitcoin address.
+	 * //  Get bitcoin address.
 	 * $this->Address();
 	 *
-	 * //	Get bitcoin address by label.
+	 * //  Get bitcoin address by label.
 	 * $this->Address('TEST');
 	 *
-	 * //	Get new address generate always.
+	 * //  Get new address generate always.
 	 * $this->Address('TEST', null);
 	 * </pre>
 	 *
@@ -176,7 +176,7 @@ class Bitcoin implements IF_UNIT
 		return $transaction_id;
 	}
 
-	/** Received bitcoin.
+	/** Received is balance per address.
 	 *
 	 * @created  2019-08-28
 	 * @param    string      $address
@@ -187,7 +187,7 @@ class Bitcoin implements IF_UNIT
 		return self::RPC('getreceivedbyaddress',[$address]);
 	}
 
-	/** Received bitcoin.
+	/** Get transaction by id.
 	 *
 	 * @created  2019-08-28
 	 * @param    string      $transaction_id
