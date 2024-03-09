@@ -53,5 +53,15 @@ $args   =  null;
 $result = 'Exception: OP\UNIT\Bitcoin\RPC::RPC(): Argument #1 ($method) must be of type string, null given, called in /System/Volumes/Data/www/op/core/7/trait/OP_CI.php on line 53';
 $ci->Set('RPC', $result, $args);
 
+//	Address
+$args   = 'testcase';
+$result = 'bcrt1qjylj26582zvhkh750wm2a4r73czt3t5yxg7hsx';
+$ci->Set('Address', $result, $args);
+
+//	Balance
+$args   = '';
+$result = '';
+$ci->Set('Balance', $result, $args);
+
 //	...
 return $ci->GenerateConfig();
