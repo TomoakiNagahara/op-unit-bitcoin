@@ -23,7 +23,7 @@ namespace OP\UNIT\BITCOIN;
  */
 
 //	...
-switch( $_SERVER['SERVER_NAME'] ){
+switch( $_SERVER['SERVER_NAME'] ?? PHP_SAPI ){
 	//	Production
 	case 'example.com':
 		$network = 'mainnet';
