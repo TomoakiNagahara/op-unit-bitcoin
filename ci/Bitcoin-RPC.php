@@ -58,9 +58,16 @@ $args   = 'testcase';
 $result = 'bcrt1qjylj26582zvhkh750wm2a4r73czt3t5yxg7hsx';
 $ci->Set('Address', $result, $args);
 
+//	Bitcoin-cli
+$bitcoin_config = OP()->Config('bitcoin');
+$bitcoin_path   = trim(`which bitcoin-cli`);
+$bitcoin_conf   = $bitcoin_config['bitcoin.conf'];
+$bitcoin_chain  = $bitcoin_config['chain'];
+$bitcoin_cli    = "{$bitcoin_path} -conf={$bitcoin_conf} -{$bitcoin_chain}";
+
 //	Balance
-$args   = '';
-$result = '';
+$args   = null;
+$result = (float)trim(`{$bitcoin_cli} getbalance`);
 $ci->Set('Balance', $result, $args);
 
 //	...
