@@ -53,17 +53,29 @@ $args   =  null;
 $result = 'Exception: OP\UNIT\Bitcoin\RPC::RPC(): Argument #1 ($method) must be of type string, null given, called in /System/Volumes/Data/www/op/core/7/trait/OP_CI.php on line 53';
 $ci->Set('RPC', $result, $args);
 
-//	Address
-$args   = 'testcase';
-$result = 'bcrt1qjylj26582zvhkh750wm2a4r73czt3t5yxg7hsx';
-$ci->Set('Address', $result, $args);
-
-//	Bitcoin-cli
+/** Bitcoin-cli
+ * @see https://qiita.com/daiki44/items/cf6ba7ae9572f34d8b52
+ */
 $bitcoin_config = OP()->Config('bitcoin');
 $bitcoin_path   = trim(`which bitcoin-cli`);
 $bitcoin_conf   = $bitcoin_config['bitcoin.conf'];
 $bitcoin_chain  = $bitcoin_config['chain'];
 $bitcoin_cli    = "{$bitcoin_path} -conf={$bitcoin_conf} -{$bitcoin_chain}";
+
+//	...
+if( $bitcoin_chain !== 'regtest' ){
+	throw new \Exception("A network chain is not regtest. ($bitcoin_chain)");
+}
+
+//	Address
+$label  = 'testcase';
+$json   = trim(`{$bitcoin_cli} getaddressesbylabel {$label}`);
+if( preg_match('|\s"([a-z0-9]{44})": {\n|', $json, $match) ){
+	$address = $match[1];
+}
+$args   = $label;
+$result = $address;
+$ci->Set('Address', $result, $args);
 
 //	Balance
 $args   = null;
