@@ -41,6 +41,13 @@ class RPC implements IF_UNIT
 	 */
 	use OP_CORE, OP_UNIT, OP_CI;
 
+	/** Stack values for CI.
+	 *
+	 * @created    2024-03-02
+	 * @var        array
+	 */
+	static $_CI;
+
 	/** Get RPC port number.
 	 *
 	 * @created  2019-08-28
