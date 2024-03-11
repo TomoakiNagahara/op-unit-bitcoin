@@ -48,6 +48,20 @@ class RPC implements IF_UNIT
 	 */
 	static $_CI;
 
+	/** construct
+	 *
+	 * @created    2024-03-02
+	 */
+	function __construct()
+	{
+		//	...
+		if( Env::AppID() === _OP_UNIT_CI_APP_ID_ ){
+			//	...
+			self::$_CI['balance']['null']     = self::Balance();
+			self::$_CI['balance']['testcase'] = self::Balance('testcase');
+		}
+	}
+
 	/** Get RPC port number.
 	 *
 	 * @created  2019-08-28
