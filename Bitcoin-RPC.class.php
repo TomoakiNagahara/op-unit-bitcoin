@@ -205,9 +205,22 @@ class RPC implements IF_UNIT
 	 * @param    string      $address
 	 * @return   string      $address
 	 */
-	static function Balance($label=null)
+	static function Balance($address=null)
 	{
-		return self::RPC('getbalance',[$label]);
+		//	...
+		if( self::$_CI ){
+			//	...
+			if( $address ){
+				$balance = self::$_CI['balance'][$address] ?? null;
+			}else{
+				$balance = self::$_CI['balance']['null'];
+			}
+			//	...
+			return $balance;
+		}
+
+		//	...
+		return self::RPC('getbalance',[$address]);
 	}
 
 	/** Send bitcoin.
