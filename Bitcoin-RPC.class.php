@@ -276,6 +276,12 @@ class RPC implements IF_UNIT
 	 */
 	static function Mining($number, $address)
 	{
+		//	...
+		if( Env::AppID() === _OP_UNIT_CI_APP_ID_ ){
+			return 'CI:block_id';
+		}
+
+		//	...
 		return self::RPC('generatetoaddress',[1, $address]);
 	}
 
