@@ -18,6 +18,7 @@ declare(strict_types=1);
  */
 namespace OP;
 
+/* @var $match array */
 /* @var $ci UNIT\CI */
 $ci = OP::Unit('CI');
 
@@ -72,15 +73,56 @@ $label  = 'testcase';
 $json   = trim(`{$bitcoin_cli} getaddressesbylabel {$label}`);
 if( preg_match('|\s"([a-z0-9]{44})": {\n|', $json, $match) ){
 	$address = $match[1];
+}else{
+	throw new \Exception($json);
 }
 $args   = $label;
 $result = $address;
 $ci->Set('Address', $result, $args);
 
-//	Balance
+//	Balance (total)
 $args   = null;
 $result = (float)trim(`{$bitcoin_cli} getbalance`);
 $ci->Set('Balance', $result, $args);
+
+//	Balance (each address)
+$args   = $address;
+$result = (float)trim(`{$bitcoin_cli} getbalance {$address}`);
+$ci->Set('Balance', $result, $args);
+
+//	Send
+$amount = 1;
+$args   = [$address, $amount];
+$result = 'CI:transaction_id';
+$ci->Set('Send', $result, $args);
+
+//	Mining
+$block_num = 1;
+$args   = [$block_num, $address];
+$result = 'CI:block_id';
+$ci->Set('Mining', $result, $args);
+
+//	Block
+$json   = trim(`{$bitcoin_cli} generatetoaddress 1 {$address}`);
+if( preg_match('|\s"([a-z0-9]{64})"\n|', $json, $match) ){
+	$block_id = $match[1];
+}
+$args   = $block_id;
+$result = trim(`{$bitcoin_cli} getblock {$block_id}`);
+$ci->Set('Block', $result, $args);
+
+//	Recieved
+$args   = $address;
+$result = (float)trim(`{$bitcoin_cli} getreceivedbyaddress {$address}`);
+$ci->Set('Recieved', $result, $args);
+
+//	Transaction
+$transaction_id = trim(`{$bitcoin_cli} sendtoaddress {$address} {$amount}`);
+$transaction    = trim(`{$bitcoin_cli} gettransaction {$transaction_id}`);
+$transaction    = json_decode($transaction, true);
+$args   = $transaction_id;
+$result = $transaction;
+$ci->Set('Transaction', $result, $args);
 
 //	...
 return $ci->GenerateConfig();
