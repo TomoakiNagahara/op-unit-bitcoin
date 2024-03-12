@@ -232,6 +232,12 @@ class RPC implements IF_UNIT
 	 */
 	static function Send($address, $amount)
 	{
+		//	...
+		if( Env::AppID() === _OP_UNIT_CI_APP_ID_ ){
+			return 'CI:transaction_id';
+		}
+
+		//	...
 		return self::RPC('sendtoaddress',[$address, $amount]);
 	}
 
