@@ -293,7 +293,7 @@ class RPC implements IF_UNIT
 		return self::RPC('getreceivedbyaddress',[$address]);
 	}
 
-	/** Received bitcoin.
+	/** Get transaction by id.
 	 *
 	 * @created  2019-08-28
 	 * @param    string      $transaction_id
