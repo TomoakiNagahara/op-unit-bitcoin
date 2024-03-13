@@ -282,11 +282,11 @@ class RPC implements IF_UNIT
 		return $transaction_id;
 	}
 
-	/** Received bitcoin.
+	/** Received balance per each address.
 	 *
 	 * @created  2019-08-28
 	 * @param    string      $address
-	 * @return   integer     $result
+	 * @return   integer     $balance
 	 */
 	static function Recieved($address)
 	{
