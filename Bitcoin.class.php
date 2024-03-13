@@ -63,18 +63,6 @@ class Bitcoin implements IF_UNIT
 		return $_database;
 	}
 
-	/** Generate block.
-	 *
-	 * @created  2019-08-28
-	 * @param    string      $address of receive reward
-	 * @param    integer     $number of blocks
-	 * @return   string      $address of mining reward
-	 */
-	static function Mining(string $address, int $number=1)
-	{
-		return self::RPC('generatetoaddress',[(int)$number, $address]);
-	}
-
 	/** Get Blockchain information.
 	 *
 	 * @created  2019-08-28
