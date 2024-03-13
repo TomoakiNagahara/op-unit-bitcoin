@@ -63,31 +63,6 @@ class Bitcoin implements IF_UNIT
 		return $_database;
 	}
 
-	/** Get RPC port number.
-	 *
-	 * @created  2019-08-28
-	 * @param    string      $chain
-	 * @return   integer     $port
-	 */
-	static function Port($label)
-	{
-		//	...
-		switch( $label ){
-			case 'mainnet':
-				$port =  8332;
-				break;
-			case 'testnet':
-				$port = 18332;
-				break;
-			case 'regtest':
-				$port = 18443;
-				break;
-		};
-
-		//	...
-		return $port;
-	}
-
 	/** Submit to RPC.
 	 *
 	 * @created  2019-08-28
