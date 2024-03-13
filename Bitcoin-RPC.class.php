@@ -200,11 +200,11 @@ class RPC implements IF_UNIT
 		return self::RPC('getnewaddress',[$label]);
 	}
 
-	/** Get balance
+	/** Get wallet balance. That total each address.
 	 *
 	 * @created  2019-08-28
 	 * @param    string      $address
-	 * @return   string      $address
+	 * @return   integer     $btc
 	 */
 	static function Balance($address=null)
 	{
