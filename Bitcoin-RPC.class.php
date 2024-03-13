@@ -330,7 +330,7 @@ class RPC implements IF_UNIT
 		}
 
 		//	...
-		return self::RPC('generatetoaddress',[1, $address]);
+		return self::RPC('generatetoaddress',[(int)$number, $address]);
 	}
 
 	/** Get Blockchain information.
