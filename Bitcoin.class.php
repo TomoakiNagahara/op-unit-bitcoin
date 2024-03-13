@@ -63,18 +63,6 @@ class Bitcoin implements IF_UNIT
 		return $_database;
 	}
 
-	/** Submit to RPC.
-	 *
-	 * @created  2019-08-28
-	 * @param    string      $method
-	 * @return   string      $json
-	 */
-	static function RPC($method, $params=[])
-	{
-		require_once(__DIR__.'/function/RPC.php');
-		return BITCOIN\RPC($method, $params);
-	}
-
 	/** Get bitcoin address by label.
 	 *
 	 * <pre>
