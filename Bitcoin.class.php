@@ -63,21 +63,6 @@ class Bitcoin implements IF_UNIT
 		return $_database;
 	}
 
-	/** Amount(string|null $address) --> Balance(null), Recieve(string $address)
-	 *
-	 * @created  2019-08-28
-	 * @param    string|null $address
-	 * @return   integer     $result
-	 */
-	static function Amount($address=null)
-	{
-		if( $address ){
-			return self::Received($address);
-		}else{
-			return self::Balance();
-		};
-	}
-
 	/** Send bitcoin.
 	 *
 	 * @created  2019-08-28
