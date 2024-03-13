@@ -63,23 +63,6 @@ class Bitcoin implements IF_UNIT
 		return $_database;
 	}
 
-	/** Get wallet balance. That total each address.
-	 *
-	 * @created  2019-08-28
-	 * @param    string      $address
-	 * @return   integer     $btc
-	 */
-	static function Balance(string $address='')
-	{
-		//	Per address.
-		if( $address ){
-			return self::Received($address);
-		}
-
-		//	Wallet total amount
-		return self::RPC('getbalance');
-	}
-
 	/** Amount(string|null $address) --> Balance(null), Recieve(string $address)
 	 *
 	 * @created  2019-08-28
