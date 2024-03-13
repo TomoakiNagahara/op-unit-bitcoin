@@ -220,8 +220,13 @@ class RPC implements IF_UNIT
 			return $balance;
 		}
 
-		//	...
-		return self::RPC('getbalance',[$address]);
+		//	Per address.
+		if( $address ){
+			return self::Received($address);
+		}
+
+		//	Wallet total amount
+		return self::RPC('getbalance');
 	}
 
 	/** Send bitcoin.
