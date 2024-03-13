@@ -63,16 +63,6 @@ class Bitcoin implements IF_UNIT
 		return $_database;
 	}
 
-	/** Get mining information.
-	 *
-	 * @created  2019-08-28
-	 * @return   array
-	 */
-	static function InfoMining()
-	{
-		return self::RPC('getmininginfo');
-	}
-
 	/** Get wallet information.
 	 *
 	 * @created  2019-08-28
