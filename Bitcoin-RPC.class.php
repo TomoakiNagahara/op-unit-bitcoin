@@ -271,7 +271,15 @@ class RPC implements IF_UNIT
 		}
 
 		//	...
-		return self::RPC('sendtoaddress',[$address, $amount]);
+		$transaction_id = self::RPC('sendtoaddress',[$address, $amount]);
+
+		//	...
+		if( OP()->Config('bitcoin')['database'] ?? null ){
+			self::Database()->Send($address, $amount, $transaction_id);
+		}
+
+		//	...
+		return $transaction_id;
 	}
 
 	/** Received bitcoin.
