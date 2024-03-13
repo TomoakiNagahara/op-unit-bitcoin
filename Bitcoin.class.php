@@ -63,16 +63,6 @@ class Bitcoin implements IF_UNIT
 		return $_database;
 	}
 
-	/** Get address information.
-	 *
-	 * @created  2019-08-28
-	 * @return   array
-	 */
-	static function InfoAddress($address)
-	{
-		return self::RPC('getaddressinfo', [$address]);
-	}
-
 	/** Return the config that also include the bitcoin.conf.
 	 *
 	 * @created   2024-03-02
