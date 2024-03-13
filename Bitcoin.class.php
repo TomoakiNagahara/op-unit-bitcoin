@@ -63,17 +63,6 @@ class Bitcoin implements IF_UNIT
 		return $_database;
 	}
 
-	/** Received is balance per address.
-	 *
-	 * @created  2019-08-28
-	 * @param    string      $address
-	 * @return   integer     $result
-	 */
-	static function Received(string $address)
-	{
-		return self::RPC('getreceivedbyaddress',[$address]);
-	}
-
 	/** Get transaction by id.
 	 *
 	 * @created  2019-08-28
