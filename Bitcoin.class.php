@@ -63,27 +63,6 @@ class Bitcoin implements IF_UNIT
 		return $_database;
 	}
 
-	/** Send bitcoin.
-	 *
-	 * @created  2019-08-28
-	 * @param    string      $address
-	 * @param    float       $amount
-	 * @return   string      $transaction_id
-	 */
-	static function Send($address, $amount)
-	{
-		//	...
-		$transaction_id = self::RPC('sendtoaddress',[$address, $amount]);
-
-		//	...
-		if( OP()->Config('bitcoin')['database'] ?? null ){
-			self::Database()->Send($address, $amount, $transaction_id);
-		}
-
-		//	...
-		return $transaction_id;
-	}
-
 	/** Received is balance per address.
 	 *
 	 * @created  2019-08-28
