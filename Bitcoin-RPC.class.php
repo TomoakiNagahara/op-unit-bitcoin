@@ -16,7 +16,7 @@ declare(strict_types=1);
 /** namespace
  *
  */
-namespace OP\UNIT\BITCOIN;
+namespace OP\UNIT\Bitcoin;
 
 /** Used class.
  *
