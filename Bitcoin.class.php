@@ -21,7 +21,6 @@ namespace OP\UNIT;
 /** Used class.
  *
  */
-use OP\Env;
 use OP\OP_CI;
 use OP\OP_CORE;
 use OP\OP_UNIT;
