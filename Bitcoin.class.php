@@ -63,17 +63,6 @@ class Bitcoin implements IF_UNIT
 		return $_database;
 	}
 
-	/** Get transaction by id.
-	 *
-	 * @created  2019-08-28
-	 * @param    string      $transaction_id
-	 * @return   integer     $result
-	 */
-	static function Transaction($transaction_id)
-	{
-		return self::RPC('gettransaction',[$transaction_id]);
-	}
-
 	/** Get block information.
 	 *
 	 * @created  2019-08-28
