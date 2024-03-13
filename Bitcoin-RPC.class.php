@@ -318,10 +318,11 @@ class RPC implements IF_UNIT
 	/** Generate block.
 	 *
 	 * @created  2019-08-28
-	 * @param    integer     $number of blocks
-	 * @return   string      $address of mining reward
+	 * @param    string      $address of receive reward
+	 * @param    integer     $numbers of blocks
+	 * @return   string      $block_id
 	 */
-	static function Mining($number, $address)
+	static function Mining(string $address, int $number=1)
 	{
 		//	...
 		if( Env::AppID() === _OP_UNIT_CI_APP_ID_ ){
